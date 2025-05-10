@@ -6,7 +6,7 @@ class OrderService {
   Future<void> saveOrder(Map<String, dynamic> orderData) async {
     try {
       final response = await http.post(
-        Uri.parse('${AppConstants.BASE_URL}/orders'),
+        Uri.parse('${AppConstants.BASE_URL}${AppConstants.ORDERS_ENDPOINT}'),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -24,7 +24,7 @@ class OrderService {
   Future<String?> getShopPhoneNumber(String shopId) async {
     try {
       final response = await http.get(
-        Uri.parse('${AppConstants.BASE_URL}/shops/$shopId'),
+        Uri.parse('${AppConstants.BASE_URL}${AppConstants.SHOPS_ENDPOINT}/$shopId'),
       );
 
       if (response.statusCode == 200) {
